@@ -10,4 +10,5 @@ class User < ApplicationRecord
     self.status ||= true
   end
   has_many :attendances
+  has_one :user_info
 end
