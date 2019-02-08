@@ -65,6 +65,6 @@ class UserInfosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_info_params
-      params.require(:user_info).permit(:birth_date, :gender, :marital_status, :address1, :address2, :city, :state, :country, :zipcode, :contact1, :contact2, :linkedin_link, :twitter_link, :facebook_link).merge(user_id: current_user.id)
+      params.require(:user_info).permit(:birth_date, :gender, :marital_status, :address1, :address2, :city, :state, :country, :zipcode, :contact1, :contact2, :linkedin_link, :twitter_link, :facebook_link, :header_image, uploads: []).merge(user_id: current_user.id)
     end
 end

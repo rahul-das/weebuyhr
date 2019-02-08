@@ -9,36 +9,44 @@
       <% end %>
       </ul>
     </div>
-  <% end %><style> 
-#main {
-  width: 300px;
-  height: 300px;
-  border: 1px solid black;
-  display: -webkit-flex; /* Safari */
-  display: flex;
-}
-
-#main div {
-  -webkit-flex: 1;  /* Safari 6.1+ */
-  -ms-flex: 1;  /* IE 10 */  
-  flex: 1;
-}
-</style>
+  <% end %>
 
 <div id="main">
   <div class="container-fluid">
-  <h3>   BASIC INFORMATION   </h3>
-  <div class="row">
+    <style>
+    h3
+    {
+      border: 5px solid red;
+    }
+</style>
+
+    <div class="field">
+    <%= form.label :header_image %>
+    <%= form.file_field :header_image %>
+  </div>
+ <div class="field">
+    <%= form.label :uploads%>
+    <%= form.file_field :uploads, multiple: true %>
+  </div>
+  
+<div class="row">
     <div class="col-sm-9 col-md-6 col-lg-4">
-  <div class="field">
+ 
+
+  <center><h3>   BASIC INFORMATION   </h3></center>
+
+    <div class="field">
     <%= form.label :birth_date %>
     <%= form.date_select :birth_date %>
   </div>
+
+   
 
   <div class="field">
     <%= form.label :gender %>
     <%= form.select :gender, UserInfo.genders.keys.to_a, { include_blank: true } %>
   </div>
+
 
   <div class="field">
     <%= form.label :marital_status %>
@@ -75,21 +83,24 @@
     <%= form.number_field :zipcode %>
   </div>
 </div>
-
 <div class="col-sm-2 col-md-6 col-lg-4">
-<h3>    CONTACTS  </h3>
+
+
+<center><h3>    CONTACTS  </h3></center>
   <div class="field">
     <%= form.label :contact1 %>
     <%= form.number_field:contact1 %>
   </div>
-
   <div class="field">
     <%= form.label :contact2 %>
     <%= form.number_field :contact2 %>
   </div>
 </div>
   <div class="col-sm-7 col-md-6 col-lg-4">
-<h3>    SOCIAL LINKS  </h3>
+
+
+
+<center><h3>    SOCIAL LINKS  </h3></center>
   <div class="field">
     <%= form.label :linkedin_link %>
     <%= form.text_field :linkedin_link %>

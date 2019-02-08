@@ -1,5 +1,13 @@
-<p id="notice"><%= notice %></p>
+<% if @userinfo.header_image.attached? %>
+<!-- @post.image.present? will always return true, use attached? to check presence -->
+  <p>
+    <strong>header_image:</strong>
+    <br>
+    <%= image_tag @userinfo.header_image %>
+  </p>
+<% end %>
 
+<p id="notice"><%= notice %></p>
 <p>
   <strong>Birth date:</strong>
   <%= @user_info.birth_date %>
@@ -9,7 +17,6 @@
   <strong>Gender:</strong>
   <%= @user_info.gender %>
 </p>
-
 <p>
   <strong>Marital status:</strong>
   <%= @user_info.marital_status %>

@@ -39,6 +39,7 @@ gem 'devise'
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'kaminari'
+gem "google-cloud-storage", "~> 1.11", require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
