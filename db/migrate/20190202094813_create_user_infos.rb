@@ -11,12 +11,12 @@ class CreateUserInfos < ActiveRecord::Migration[5.2]
       t.string :state
       t.string :country
       t.integer :zipcode
-      t.integer :contact1
-      t.integer :contact2
+      t.string :contact1
+      t.string :contact2
       t.string :linkedin_link
       t.string :twitter_link
       t.string :facebook_link
-
+      t.string :image
       t.timestamps
     end
   end

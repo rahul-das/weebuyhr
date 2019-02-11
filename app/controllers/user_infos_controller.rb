@@ -5,7 +5,7 @@ class UserInfosController < ApplicationController
   # GET /user_infos/1
   # GET /user_infos/1.json
   def show
-    current_user.user_info
+      current_user.user_info
   end
 
   # GET /user_infos/new
@@ -21,9 +21,13 @@ class UserInfosController < ApplicationController
   # POST /user_infos.json
   def create
     @user_info = UserInfo.new(user_info_params)
+   
 
     respond_to do |format|
       if @user_info.save
+      # @user_info.image.purge
+         #@user_info.header_image.attach(params[:header_image])
+       # @user_info.uploads.attach(params[:uploads])
         format.html { redirect_to @user_info, notice: 'User info was successfully created.' }
         format.json { render :show, status: :created, location: @user_info }
       else
@@ -65,6 +69,6 @@ class UserInfosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_info_params
-      params.require(:user_info).permit(:birth_date, :gender, :marital_status, :address1, :address2, :city, :state, :country, :zipcode, :contact1, :contact2, :linkedin_link, :twitter_link, :facebook_link, :header_image, uploads: []).merge(user_id: current_user.id)
+     params.require(:user_info).permit(:birth_date, :gender, :marital_status, :address1, :address2, :city, :state, :country, :zipcode, :contact1, :contact2, :linkedin_link, :twitter_link, :facebook_link, :image).merge(user_id: current_user.id)
     end
 end

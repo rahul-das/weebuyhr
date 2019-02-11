@@ -13,27 +13,20 @@
 
 <div id="main">
   <div class="container-fluid">
-    <style>
-    h3
-    {
-      border: 5px solid red;
-    }
-</style>
+   
 
-    <div class="field">
-    <%= form.label :header_image %>
-    <%= form.file_field :header_image %>
-  </div>
- <div class="field">
-    <%= form.label :uploads%>
-    <%= form.file_field :uploads, multiple: true %>
-  </div>
+    
   
 <div class="row">
     <div class="col-sm-9 col-md-6 col-lg-4">
  
 
   <center><h3>   BASIC INFORMATION   </h3></center>
+     <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+     
 
     <div class="field">
     <%= form.label :birth_date %>
@@ -124,3 +117,9 @@
     <%= form.submit "SUBMIT", class: "btn btn-lg btn-danger" %>
   </div>
 <% end %>
+ <style>
+    h3
+    {
+      border: 5px solid red;
+    }
+</style>

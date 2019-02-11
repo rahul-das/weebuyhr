@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_07_075257) do
+ActiveRecord::Schema.define(version: 2019_02_09_112513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,11 +57,12 @@ ActiveRecord::Schema.define(version: 2019_02_07_075257) do
     t.string "state"
     t.string "country"
     t.integer "zipcode"
-    t.integer "contact1"
-    t.integer "contact2"
+    t.string "contact1"
+    t.string "contact2"
     t.string "linkedin_link"
     t.string "twitter_link"
     t.string "facebook_link"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_user_infos_on_user_id"

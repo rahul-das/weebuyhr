@@ -13,14 +13,13 @@ local:
 #   secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
 #   region: us-east-1
 #   bucket: your_own_bucket
-
-digitalocean:
-  service: S3
-  access_key_id: <%= rails.application.credentials.dig(:digitalocean, :access_key_id) %>
-  secret_access_key: <%= rails.application.credentials.dig(:digitalocean, :secret_access_key) %>
-  region: myc3
-  bucket: gorails
-  endpoint: "http://myc3.digitaloceansspaces.com"
+  #digitalocean:
+  #service: S3
+  #access_key_id: <%= Rails.application.credentials.dig(:digitalocean, :access_key_id) %>
+  #secret_access_key: <%= Rails.application.credentials.dig(:digitalocean, :secret_access_key) %>
+  #region: myc3
+  #bucket: gorails
+  #endpoint: "http://myc3.digitaloceansspaces.com"
 # Remember not to checkin your GCS keyfile to a repository
 # google:
 #   service: GCS
