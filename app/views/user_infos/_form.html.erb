@@ -1,0 +1,125 @@
+<%= form_with(model: user_info, local: true) do |form| %>
+  <% if user_info.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_info.errors.count, "error") %> prohibited this user_info from being saved:</h2>
+
+      <ul>
+      <% user_info.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div id="main">
+  <div class="container-fluid">
+   
+
+    
+  
+<div class="row">
+    <div class="col-sm-9 col-md-6 col-lg-4">
+ 
+
+  <center><h3>   BASIC INFORMATION   </h3></center>
+     <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+     
+
+    <div class="field">
+    <%= form.label :birth_date %>
+    <%= form.date_select :birth_date %>
+  </div>
+
+   
+
+  <div class="field">
+    <%= form.label :gender %>
+    <%= form.select :gender, UserInfo.genders.keys.to_a, { include_blank: true } %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :marital_status %>
+    <%= form.select :marital_status, UserInfo.marital_statuses.keys.to_a, { include_blank: true } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address1 %>
+    <%= form.text_field :address1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address2 %>
+    <%= form.text_field :address2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_field :state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zipcode %>
+    <%= form.number_field :zipcode %>
+  </div>
+</div>
+<div class="col-sm-2 col-md-6 col-lg-4">
+
+
+<center><h3>    CONTACTS  </h3></center>
+  <div class="field">
+    <%= form.label :contact1 %>
+    <%= form.number_field:contact1 %>
+  </div>
+  <div class="field">
+    <%= form.label :contact2 %>
+    <%= form.number_field :contact2 %>
+  </div>
+</div>
+  <div class="col-sm-7 col-md-6 col-lg-4">
+
+
+
+<center><h3>    SOCIAL LINKS  </h3></center>
+  <div class="field">
+    <%= form.label :linkedin_link %>
+    <%= form.text_field :linkedin_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :twitter_link %>
+    <%= form.text_field :twitter_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :facebook_link %>
+    <%= form.text_field :facebook_link %>
+  </div>
+</div>
+</div>
+</div>
+
+  
+<div class="actions" style="text-align: center;padding: 10px;">
+    <%= form.submit "SUBMIT", class: "btn btn-lg btn-danger" %>
+  </div>
+<% end %>
+ <style>
+    h3
+    {
+      border: 5px solid red;
+    }
+</style>

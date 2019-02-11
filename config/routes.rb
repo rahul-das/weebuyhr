@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_infos, except: [:index]
   resources :attendances, only: [:index, :show] do
     get 'new_comment', on: :collection
     post 'create_comment', on: :collection

@@ -1,0 +1,80 @@
+
+
+<p id="notice"><%= notice %></p>
+<% if @user_info.image.attached? %>
+<p>
+  <strong>Image:</strong>
+  <br>
+  <%= image_tag @user_info.image, height: '100', width: '100' %>
+</p>
+<% end %>
+<p>
+  <strong>Birth date:</strong>
+  <%= @user_info.birth_date %>
+</p>
+<p>
+  <strong>Gender:</strong>
+  <%= @user_info.gender %>
+</p>
+<p>
+  <strong>Marital status:</strong>
+  <%= @user_info.marital_status %>
+</p>
+
+<p>
+  <strong>Address1:</strong>
+  <%= @user_info.address1 %>
+</p>
+
+<p>
+  <strong>Address2:</strong>
+  <%= @user_info.address2 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @user_info.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @user_info.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @user_info.country %>
+</p>
+
+<p>
+  <strong>Zipcode:</strong>
+  <%= @user_info.zipcode %>
+</p>
+
+<p>
+  <strong>Contact1:</strong>
+  <%= @user_info.contact1 %>
+</p>
+
+<p>
+  <strong>Contact2:</strong>
+  <%= @user_info.contact2 %>
+</p>
+
+<p>
+  <strong>Linkedin link:</strong>
+  <%= @user_info.linkedin_link %>
+</p>
+
+<p>
+  <strong>Twitter link:</strong>
+  <%= @user_info.twitter_link %>
+</p>
+
+<p>
+  <strong>Facebook link:</strong>
+  <%= @user_info.facebook_link %>
+</p>
+
+<%= link_to 'Edit', edit_user_info_path(@user_info) %> |
+<%= link_to 'Back', user_infos_path %>
