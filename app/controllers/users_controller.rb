@@ -11,7 +11,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = current_user
+    @user = current_user.admin? ? User.find(params[:id]) : current_user
+    current_month_attendances = @user.attendances.current_month
+    @current_month_duration = current_month_attendances.sum { |a| a.time_out - a.time_in }
+    @duration_in_words = seconds_to_dhm(@current_month_duration)
+    @duration_expected = current_month_attendances.count * 8
   end
 
   def log_time_in

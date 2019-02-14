@@ -23,7 +23,7 @@ class AttendancesController < ApplicationController
   # GET /attendances/1.json
   def show
     @attendance = Attendance.find(params[:id])
-    unless @attendance.user == current_user
+    if current_user.employee? && (@attendance.user.id != current_user.id)
       redirect_to attendances_url, notice: "You're not authorized to check attendance of #{@attendance.user.first_name} #{@attendance.user.last_name}."
     end
   end

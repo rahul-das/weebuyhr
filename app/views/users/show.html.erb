@@ -1,4 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<p>Name: <%= "#{@user.first_name} #{@user.last_name}" %></p>
+<p>Email:<%= @user.email %></p>
+<p>Role: <%= @user.role %></p>
+<p>Current Month Duration: <%= @duration_in_words %></p>
+<p>Current Month Duration expected: <%= @duration_expected %></p>
+<p>Current Month Duration percentage: <%= ((@current_month_duration / (@duration_expected * 60 * 60.0)) * 100).round %>%</p>
+
 <%= link_to 'Back', users_path %>
