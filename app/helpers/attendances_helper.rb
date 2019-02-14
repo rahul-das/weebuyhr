@@ -3,9 +3,9 @@ module AttendancesHelper
     hours = ((to_time - from_time).round / 3600)
     minutes = (((to_time - from_time).round % 3600.0) / 60.0).ceil
     if hours == 0
-      return "#{minutes} minute(s)"
+      return "#{minutes}m"
     else
-      return "#{hours} hour(s) #{minutes} minute(s)"
+      return "#{hours}h #{minutes}m"
     end
   end
 end

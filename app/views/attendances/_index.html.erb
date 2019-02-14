@@ -22,7 +22,7 @@
         <td><%= attendance.time_in&.strftime("%v") %></td>
         <td><%= attendance.time_in&.strftime("%r") %></td>
         <td><%= attendance.time_out&.strftime("%r") %></td>
-        <td class="wrappable"><%= attendance.comments %></td>
+        <td class="wrappable text-truncate"><%= attendance.comments %></td>
         <td>
           <%= (attendance.time_in.present? && attendance.time_out.present?) ? time_diff(attendance.time_in, attendance.time_out) : "" %>
         </td>
