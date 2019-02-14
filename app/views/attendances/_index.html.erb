@@ -8,6 +8,7 @@
       <th>Time in</th>
       <th>Time out</th>
       <th>Comments</th>
+      <th>Duration</th>
       <th colspan="1"></th>
     </tr>
   </thead>
@@ -22,6 +23,9 @@
         <td><%= attendance.time_in&.strftime("%r") %></td>
         <td><%= attendance.time_out&.strftime("%r") %></td>
         <td class="wrappable"><%= attendance.comments %></td>
+        <td>
+          <%= (attendance.time_in.present? && attendance.time_out.present?) ? time_diff(attendance.time_in, attendance.time_out) : "" %>
+        </td>
         <td><%= link_to 'Show', attendance %></td>
       </tr>
     <% end %>
