@@ -1,10 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>Name: <%= "#{@user.first_name} #{@user.last_name}" %></p>
-<p>Email:<%= @user.email %></p>
-<p>Role: <%= @user.role %></p>
-<p>Current Month Duration: <%= @duration_in_words %></p>
-<p>Current Month Duration expected: <%= @duration_expected %></p>
-<p>Current Month Duration percentage: <%= ((@current_month_duration / (@duration_expected * 60 * 60.0)) * 100).round %>%</p>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <div class="row">
+        <div class="col-6 text-right">Name</div>
+        <div class="col-6 text-primary"><%= "#{@user.first_name} #{@user.last_name}" %></div>
+      </div>
+      <div class="row">
+        <div class="col-6 text-right">Email</div>
+        <div class="col-6 text-success"><%= @user.email %></div>
+      </div>
+      <div class="row">
+        <div class="col-6 text-right">Role</div>
+        <div class="col-6 text-warning"><%= @user.role %></div>
+      </div>
+      <div class="row">
+        <div class="col-6 text-right">Average Duration for <%= Date.today.strftime("%B %Y") %></div>
+        <div class="col-6 text-danger"><%= @avg_duration_in_words %></div>
+      </div>
+    </div>
+    <div class="col-8">
+      <%= line_chart Hash[@current_month_attendances.group_by_day{|a| a.created_at}.map{|k,v| [k, ((v.first.time_out - v.first.time_in)/3600.0).round(2)]}] %>
+    </div>
+  </div>
+</div>
 
 <%= link_to 'Back', users_path %>

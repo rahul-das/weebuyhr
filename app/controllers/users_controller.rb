@@ -5,17 +5,18 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.order(role: :desc, id: :asc)
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
     @user = current_user.admin? ? User.find(params[:id]) : current_user
-    current_month_attendances = @user.attendances.current_month
-    @current_month_duration = current_month_attendances.sum { |a| a.time_out - a.time_in }
-    @duration_in_words = seconds_to_dhm(@current_month_duration)
-    @duration_expected = current_month_attendances.count * 8
+    # Average Duration
+    @current_month_attendances = @user.attendances.current_month
+    current_month_duration = @current_month_attendances&.sum { |a| a.time_out - a.time_in }
+    avg_duration = current_month_duration.to_i / @current_month_attendances.count
+    @avg_duration_in_words = seconds_to_dhm(avg_duration)
   end
 
   def log_time_in

@@ -25,7 +25,7 @@
         <td><%= user.email %></td>
         <td><%= user.role %></td>
         <td><%= user.status %></td>
-        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to_if(user.employee?, 'Show', user){} %></td>
       </tr>
     <% end %>
   </tbody>
