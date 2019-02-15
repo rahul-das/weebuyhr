@@ -3,22 +3,12 @@
 <div class="container">
   <div class="row">
     <div class="col-4">
-      <div class="row">
-        <div class="col-6 text-right">Name</div>
-        <div class="col-6 text-primary"><%= "#{@user.first_name} #{@user.last_name}" %></div>
-      </div>
-      <div class="row">
-        <div class="col-6 text-right">Email</div>
-        <div class="col-6 text-success"><%= @user.email %></div>
-      </div>
-      <div class="row">
-        <div class="col-6 text-right">Role</div>
-        <div class="col-6 text-warning"><%= @user.role %></div>
-      </div>
-      <div class="row">
-        <div class="col-6 text-right">Average Duration for <%= Date.today.strftime("%B %Y") %></div>
-        <div class="col-6 text-danger"><%= @avg_duration_in_words %></div>
-      </div>
+
+      <div class="text-success text-center py-2 font-weight-bold"><%= "#{@user.first_name} #{@user.last_name}" %></div>
+      <div class="text-success text-center py-2"><%= mail_to @user.email %></div>
+      <div class="text-warning text-center py-2 font-italic"><%= @user.role %></div>
+      <div class="text-secondary text-center pt-2 pb-1">Average Duration (<%= Date.today.strftime("%B %Y") %>)</div>
+      <div class="text-danger text-center pt-1 pb-2 font-weight-bold"><%= @avg_duration_in_words %></div>
     </div>
     <div class="col-8">
       <%= line_chart Hash[@current_month_attendances.group_by_day{|a| a.created_at}.map{|k,v| [k, ((v.first.time_out - v.first.time_in)/3600.0).round(2)]}] %>
@@ -26,4 +16,6 @@
   </div>
 </div>
 
-<%= link_to 'Back', users_path %>
+<div class="text-right align-text-bottom" style="padding-top: 200px; padding-right: 40px;">
+  <%= link_to 'Back', users_path, class: "btn btn-outline-dark" %>
+</div>
