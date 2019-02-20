@@ -28,7 +28,7 @@ class UserInfosController < ApplicationController
       # @user_info.image.purge
          #@user_info.header_image.attach(params[:header_image])
        # @user_info.uploads.attach(params[:uploads])
-        format.html { redirect_to @user_info, notice: 'User info was successfully created.' }
+        format.html { redirect_to @user_info, notice: 'User info was successfully created:' }
         format.json { render :show, status: :created, location: @user_info }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class UserInfosController < ApplicationController
   def update
     respond_to do |format|
       if @user_info.update(user_info_params)
-        format.html { redirect_to @user_info, notice: 'User info was successfully updated.' }
+        format.html { redirect_to @user_info, notice: 'User info was successfully updated:'}
         format.json { render :show, status: :ok, location: @user_info }
       else
         format.html { render :edit }

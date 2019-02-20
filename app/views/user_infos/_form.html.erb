@@ -1,4 +1,4 @@
-<%= form_with(model: user_info, local: true) do |form| %>
+ <%= form_with(model: user_info, local: true) do |form| %>
   <% if user_info.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user_info.errors.count, "error") %> prohibited this user_info from being saved:</h2>
@@ -19,26 +19,26 @@
   
 <div class="row">
     <div class="col-sm-9 col-md-6 col-lg-4">
- 
+  
+     
 
   <center><h3>   BASIC INFORMATION   </h3></center>
-     <div class="field">
+    <div class="field">
     <%= form.label :image %>
     <%= form.file_field :image %>
   </div>
-     
 
+  
     <div class="field">
     <%= form.label :birth_date %>
     <%= form.date_select :birth_date %>
   </div>
 
-   
-
   <div class="field">
     <%= form.label :gender %>
     <%= form.select :gender, UserInfo.genders.keys.to_a, { include_blank: true } %>
   </div>
+
 
 
   <div class="field">
@@ -48,7 +48,7 @@
 
   <div class="field">
     <%= form.label :address1 %>
-    <%= form.text_field :address1 %>
+   <%= form.text_field :address1 %>
   </div>
 
   <div class="field">

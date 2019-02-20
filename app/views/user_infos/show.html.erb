@@ -1,17 +1,29 @@
+ <p id="notice"><%= notice %></p>
 
-
-<p id="notice"><%= notice %></p>
-<% if @user_info.image.attached? %>
+<div class="card text-center">
+ <div class="card-body">
+    <h1 class="card-title">PROFILE</h1>
+  </div>
+</div>
+ <% if @user_info.image.attached? %>
 <p>
-  <strong>Image:</strong>
-  <br>
-  <%= image_tag @user_info.image, height: '100', width: '100' %>
+    <strong></strong>
+  <br> 
+  <%= image_tag @user_info.image, height: '200', width: '200', align: 'right' %>
+
 </p>
 <% end %>
-<p>
-  <strong>Birth date:</strong>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-4">
+      <h4><mark>BASIC INFORMATION</mark></h4>
+
+  <p>
+  <strong>BirthDate:</strong>
   <%= @user_info.birth_date %>
-</p>
+</p>    
 <p>
   <strong>Gender:</strong>
   <%= @user_info.gender %>
@@ -50,8 +62,12 @@
   <strong>Zipcode:</strong>
   <%= @user_info.zipcode %>
 </p>
+</div>
 
-<p>
+
+<div class="col-sm-4">
+  <h4><mark>CONTACTS</mark></h4>
+  <p>
   <strong>Contact1:</strong>
   <%= @user_info.contact1 %>
 </p>
@@ -60,7 +76,9 @@
   <strong>Contact2:</strong>
   <%= @user_info.contact2 %>
 </p>
-
+</div>
+<div class="col-sm-4">
+ <h4><mark>SOCIAL LINKS</mark></h4>  
 <p>
   <strong>Linkedin link:</strong>
   <%= @user_info.linkedin_link %>
@@ -75,6 +93,13 @@
   <strong>Facebook link:</strong>
   <%= @user_info.facebook_link %>
 </p>
+</div>
+</div>
+</div>
 
+<div class="card-footer">
+   <a> last updated <%= time_ago_in_words(@user_info.updated_at) %> ago</a>
+    </div>
+<center>
 <%= link_to 'Edit', edit_user_info_path(@user_info) %> |
-<%= link_to 'Back', user_infos_path %>
+<%= link_to 'Back', new_user_info_path %>

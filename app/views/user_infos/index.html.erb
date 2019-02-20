@@ -2,6 +2,7 @@
    <p id="notice"><%= notice %></p> 
 <h1>User Infos</h1>
 <table>
+  
   <thead>
     <tr>
       <th>Birth date</th>
@@ -22,8 +23,7 @@
     </tr>
   </thead>
 
- 
-  <tbody>
+  <tbodyss>
     <% @user_infos.each do |user_info| %>
       <tr>
         <td><%= user_info.birth_date %></td>
@@ -43,7 +43,8 @@
         <td><%= link_to 'Show', user_info %></td>
         <td><%= link_to 'Edit', edit_user_info_path(user_info) %></td>
         <td><%= link_to 'Destroy', user_info, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    </tr>
+</tbodyss>
     <% end %>
   </tbody>
 </table>

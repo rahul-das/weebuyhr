@@ -14,11 +14,17 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def log_time_in
-    attendance = current_user.attendances.create(time_in: DateTime.now)
-    redirect_to attendances_url, notice: "You've successfully started your day at Work. Rock it!"
+  
+    def log_time_in
+    attendance = current_user.attendances.where(time_in: Date.today.all_day).last
+    if attendance.present?
+      redirect_to attendances_url, notice: "You are already Log In for the day!!"
+    else
+      attendance = current_user.attendances.create(time_in: DateTime.now)
+      redirect_to attendances_url, notice: "You've successfully started your day at Work. Rock it!"
+    end
   end
-
+  
   def log_time_out
     attendance = current_user.attendances.where(time_in: Date.today.all_day).last
     if attendance.blank?
