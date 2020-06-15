@@ -1,6 +1,7 @@
 <style media="screen">
   .container {
     text-align: center;
+
   }
   .wrappable {
     overflow: hidden;
@@ -9,7 +10,7 @@
     text-align: justify;
   }
   .table th, .table td {
-    vertical-align: middle;
+    vertical-align: center;
   }
 </style>
 <% unless notice.blank? %>
@@ -21,17 +22,22 @@
 
 
 <center>
-  <h2>Attendances</h2>
+  <h2 class= "Attendances">Attendances</h2>
+
+</center>
+
+<center>
+<div class="container">
+  <div class="row">
+      <%= render "index" %>
+  </div>
+</div>
+</center>
+<center>
+
   <% unless @time_in_present %>
     <%= link_to 'Log Time-In', log_time_in_users_path, class: "btn btn-danger mb-3" %>
   <% else %>
     <%= link_to('Log Time-Out', new_comment_attendances_path, class: "btn btn-danger mb-3") unless @time_out_present %>
   <% end %>
 </center>
-
-
-<div class="container">
-  <div class="row">
-      <%= render "index" %>
-  </div>
-</div>
